@@ -1,0 +1,16 @@
+AllCops:
+  Exclude:
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'linked_list_spec.rb'
+
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'linked_list.rb'
+    - 'node.rb'
