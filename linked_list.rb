@@ -38,18 +38,9 @@ class LinkedList
   end
 
   def print
-    elements = ''
     # get out fast if list is empty
-    return elements if @head.nil?
-    current = @head
-    until current.next.nil?
-      # append the value of the current node into elements, with an arrow
-      elements += "#{current.val} -> "
-      current = current.next
-    end
-    # we're at the last non-nil node now, so just append the value of current node
-    elements += current.val
-    elements
+    return '' if @head.nil?
+    values_to_string
   end
 
   # a follow-up question one might get
@@ -66,6 +57,19 @@ class LinkedList
   end
 
   private
+
+  def values_to_string
+    elements = ''
+    current = @head
+    until current.next.nil?
+      # append the value of the current node into elements, with an arrow
+      elements += "#{current.val} -> "
+      current = current.next
+    end
+    # we're at the last non-nil node now, so just append the value of current node
+    elements += current.val
+    elements
+  end
 
   def values_to_array
     values = []
