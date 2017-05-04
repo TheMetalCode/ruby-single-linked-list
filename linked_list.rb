@@ -51,4 +51,30 @@ class LinkedList
     elements += current.val
     elements
   end
+
+  # a follow-up question one might get
+  def uniq
+    # get out fast if list is empty
+    raise 'Nothing to dedupe' if @head.nil?
+    # get array of values
+    values = values_to_array
+    # now that we have an array of values, use ruby magic to remove dupes
+    values.uniq!
+    # now build a new list with the de-duped values
+    @head = nil
+    values.each { |v| add(v) }
+  end
+
+  private
+
+  def values_to_array
+    values = []
+    current = @head
+    until current.next.nil?
+      values << current.val
+      current = current.next
+    end
+    values << current.val
+    values
+  end
 end

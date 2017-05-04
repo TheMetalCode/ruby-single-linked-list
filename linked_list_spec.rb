@@ -74,4 +74,39 @@ RSpec.describe LinkedList do
       end
     end
   end
+
+  describe '#uniq' do
+
+    describe 'when empty' do
+      subject { -> { LinkedList.new.uniq } }
+      it { is_expected.to raise_error('Nothing to dedupe') }
+    end
+
+    describe 'when not empty and has dupes' do
+      before do
+        @list = LinkedList.new('foo')
+        @list.add('bar')
+        @list.add('foobar')
+        @list.add('foo')
+      end
+
+      it 'returns a deduped list' do
+        @list.uniq
+        expect(@list.print).to eq('foo -> bar -> foobar')
+      end
+    end
+
+    describe 'when not empty and has no dupes' do
+      before do
+        @list = LinkedList.new('foo')
+        @list.add('bar')
+        @list.add('foobar')
+      end
+
+      it 'returns the same list' do
+        @list.uniq
+        expect(@list.print).to eq('foo -> bar -> foobar')
+      end
+    end
+  end
 end
