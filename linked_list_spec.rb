@@ -51,6 +51,32 @@ RSpec.describe LinkedList do
         expect(list.head).to be_nil
       end
     end
+
+    describe 'when last one out with size > 1' do
+      before do
+        @list = LinkedList.new('foo')
+        @list.add('bar')
+      end
+      it 'removes at the end' do
+        @list.delete('bar')
+        expect(@list.head.val).to eq('foo')
+      end
+    end
+
+
+    describe 'when middle one out' do
+      before do
+        @list = LinkedList.new('foo')
+        @list.add('bar')
+        @list.add('bacon')
+      end
+
+      it 'removes at the end' do
+        @list.delete('bar')
+        expect(@list.head.val).to eq('foo')
+        expect(@list.head.next.val).to eq('bacon')
+      end
+    end
   end
 
   describe '#print_list' do
