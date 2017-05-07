@@ -2,7 +2,8 @@ AllCops:
   Exclude:
     - 'Gemfile'
     - 'Rakefile'
-    - 'linked_list_spec.rb'
+    - 'spec/linked_list_spec.rb'
+    - 'Guardfile'
 
 Documentation:
   Enabled: false
@@ -12,5 +13,5 @@ Metrics/LineLength:
 
 Style/FrozenStringLiteralComment:
   Exclude:
-    - 'linked_list.rb'
-    - 'node.rb'
+    - 'lib/linked_list.rb'
+    - 'lib/node.rb'
