@@ -1,7 +1,17 @@
 require 'rspec'
-require_relative 'linked_list'
+require_relative '../lib/linked_list'
 
 RSpec.describe LinkedList do
+
+  describe '#initialize' do
+    describe 'no values' do
+
+    end
+
+    describe 'with values' do
+
+    end
+  end
 
   describe '#add' do
     describe 'when empty' do
